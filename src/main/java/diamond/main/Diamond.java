@@ -1,20 +1,27 @@
 package diamond.main;
 
-public class Main {
+public class Diamond {
 
 	private final char toDisplay;
 	private final int size;
 
-	public Main(char toDisplay, int size) {
+	public Diamond(char toDisplay, int size) {
 		this.toDisplay = toDisplay;
 		this.size = size;
+		checkParity();
 	}
 
-	public char displayChar() {
+	private void checkParity() {
+		if (size % 2 == 0) {
+			throw new EvenNumberException();
+		}
+	}
+
+	char displayChar() {
 		return toDisplay;
 	}
 
-	public String displayLine(int nbToDisplay) {
+	String displayLine(int nbToDisplay) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < nbToDisplay; i++) {
 			sb.append(toDisplay);
